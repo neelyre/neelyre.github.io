@@ -2,3 +2,39 @@ body {
   background-color: azure;
 
 }
+
+#colors a{
+	color: red;
+	text-decoration: none;
+	padding: 6px;
+  border: 2px solid black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+  display: inline-block;
+
+}
+
+#colors a:hover{
+	color: Yellow;
+  font-size: 16px;
+	text-decoration: none;
+	background-color: #A0E88B;
+  color: #14116F;
+	padding: 6px;
+	border-radius: 3px;
+
+#rounds {
+  height: 50px;
+  width: 400px;
+
+}
+
+#GameCode {
+  background-color: brown;
+  height: 75px;
+  width: 400px;
+}
+
+#gameboard {
+
+}
