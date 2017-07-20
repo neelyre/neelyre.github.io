@@ -20,15 +20,28 @@ let GameCode = ['red', 'green', 'blue', 'yellow']; //test for now
 
 for (i=1; i <= 10; i++) {
    const $rounds = $('<div/>').addClass('round').attr('id', 'box' + i);
-   const $swatch1 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess1');
-   const $swatch2 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess2');
-   const $swatch3 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess3');
-   const $swatch4 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess4');
+  //  const $swatch1 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess1');
+  //  const $swatch2 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess2');
+  //  const $swatch3 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess3');
+  //  const $swatch4 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess4');
    $('.rounds').append($rounds);
-   $('#box' + i).append($swatch1);
-   $('#box' + i).append($swatch2);
-   $('#box' + i).append($swatch3);
-   $('#box' + i).append($swatch4);
+  //  $('#box' + i).append($swatch1);
+  //  $('#box' + i).append($swatch2);
+  //  $('#box' + i).append($swatch3);
+  //  $('#box' + i).append($swatch4);
+
+   const swatch1 = $('<div/>').addClass('colortoggle1');
+  //  $(".colortoggle1").toggle(
+  //      function(){$("p").css({"color": "red"});},
+  //      function(){$("p").css({"color": "blue"});},
+  //      function(){$("p").css({"color": "green"});
+  //  });
+
+
+
+
+   $('.colorSelector').append(swatch1);
+
 
 
 }
@@ -61,7 +74,7 @@ for (i=1; i <= 10; i++) {
 ///CODE GOOD   * this is code player must break
 // console.log(GameCode);
 
-let guessArray = ['red', 'green', 'white', 'black'];
+let guessArray = ['red', 'yellow', 'blue', 'green'];
 
 const entercolor = (select) => {
 guessArray.push(select);
@@ -90,7 +103,7 @@ if (guessArray.length === 4) {
 // if player tries = 0, end GAMe
 // if codekeeper issues 4 black pegs, player win.
 
-
+//GUESS FUNCTION//  WORKING
 //
 let guessSubmit = () => {
 
@@ -117,95 +130,116 @@ const guess2 = guessArray[1];
 const guess3 = guessArray[2];
 const guess4 = guessArray[3];
 
-if(guess1 === Answer1)
+playerTurns++;
+
+if(guess1 == Answer1)
 	{
 		correctAnswers++;
 		value1Checked=1;
 		guess1Checked=1;
+
+    console.log('one Black');
 	}
-	if(guess2 === Answer2)
+	if(guess2 == Answer2)
 	{
 		correctAnswers++;
 		value2Checked=1;
 		guess2Checked=1;
+
+    console.log('one Black');
 	}
-  if(guess3 === Answer3)
+  if(guess3 == Answer3)
 {
   correctAnswers++;
   value3Checked=1;
   guess3Checked=1;
+
+  console.log('one Black');
 }
-if(guess4 === Answer4)
+if(guess4 == Answer4)
 {
   correctAnswers++;
   value4Checked=1;
   guess4Checked=1;
+
+  console.log('one Black');
 }
 
-if (guess1 === Answer2) {
+if (guess1 == Answer2) {
 guess1Checked=1;
+console.log('one white');
   }
 
-     if (guess1 === Answer3) {
+     if (guess1 == Answer3) {
 guess1Checked=1;
+console.log('one white');
     }
 
-       if (guess1 === Answer4) {
+       if (guess1 == Answer4) {
   guess1Checked=1;
+  console.log('one white');
       }
 
-if (guess2 === Answer1) {
+if (guess2 == Answer1) {
 guess2Checked=1;
+console.log('one white');
         }
 
-    if (guess2 === Answer3) {
+    if (guess2 == Answer3) {
   guess2Checked=1;
+  console.log('one white');
           }
 
-       if (guess2 === Answer4) {
+       if (guess2 == Answer4) {
     guess2Checked=1;
+    console.log('one white');
             }
 
-if (guess3 === Answer1) {
+if (guess3 == Answer1) {
 guess3Checked=1;
+console.log('one white');
                     }
-    if (guess3 === Answer2) {
+    if (guess3 == Answer2) {
     guess3Checked=1;
+    console.log('one white');
                       }
 
-      if (guess3 === Answer4) {
+      if (guess3 == Answer4) {
       guess3Checked=1;
+      console.log('one white');
             }
 
-if (guess3 === Answer1) {
+if (guess4 == Answer1) {
 guess3Checked=1;
+console.log('one white');
                     }
-    if (guess3 === Answer2) {
+    if (guess4 == Answer2) {
     guess3Checked=1;
+    console.log('one white');
                       }
 
-      if (guess3 === Answer4) {
+      if (guess4 == Answer3) {
       guess3Checked=1;
+      console.log('one white');
                         }
 
-console.log(correctAnswers);
-
-if (correctAnswers === 4){
-alert('you win');
+// if (correctAnswers = 4){
+// alert('you win');
 }
 
 if (playerTurns === 10) {
 alert('you lose. correct code was' + GameCode);
 }
 
-}
 
 
 
 
 
 
-console.log(guessSubmit);
+
+guessSubmit();
+console.log(playerTurns);
 // console.log(GameCode[0]);
 //     //issue white
 
