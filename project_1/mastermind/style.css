@@ -1,5 +1,8 @@
 body {
-  background-color: azure;
+  width: 900;
+  background-image: url("images/bckgrnd.jpg");
+  display: block;
+  background-repeat: no-repeat;
 
 }
 
@@ -22,19 +25,44 @@ body {
   color: #14116F;
 	padding: 6px;
 	border-radius: 3px;
+}
 
-#rounds {
+
+
+.round {
+  width: 550px;
   height: 50px;
-  width: 400px;
+  background-color: #683A09;
+  margin: 5px;
+  border: 2px solid black;
+
+
 
 }
 
 #GameCode {
-  background-color: brown;
-  height: 75px;
-  width: 400px;
+  background-color: #9A6328;
+  height: 60px;
+  width: 550px;
+  margin: 5px;
+  border: 2px solid black;
+
 }
 
 #gameboard {
+margin-left: 175px;
+margin-top: 150px;
+}
 
+h2 {
+  text-align: center;
+}
+
+.guess1 {
+  background-color: black;
+}
+
+#box1 {
+width: 40px;
+height: 40px;
 }

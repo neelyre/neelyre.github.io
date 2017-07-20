@@ -18,14 +18,30 @@ let GameCode = ['red', 'green', 'blue', 'yellow']; //test for now
 //
 // const total = GameCode.push('football', 'swimming');
 
-//colors for play:
-// red
-// blue
-// green
-// yellow
-// white
-// black
+for (i=1; i <= 10; i++) {
+   const $rounds = $('<div/>').addClass('round').attr('id', 'box' + i);
+   const $swatch1 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess1');
+   const $swatch2 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess2');
+   const $swatch3 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess3');
+   const $swatch4 = $('<div/>').css("border-radius", "50%").css('background-color', 'black').addClass('guess4');
+   $('.rounds').append($rounds);
+   $('#box' + i).append($swatch1);
+   $('#box' + i).append($swatch2);
+   $('#box' + i).append($swatch3);
+   $('#box' + i).append($swatch4);
+
+
+}
 //
+
+// $("div").css("border-radius", "50%").addClass('guess1');
+// $("div").css("border-radius", "50%").addClass('guess2')
+// $("div").css("border-radius", "50%").addClass('guess3')
+// $("div").css("border-radius", "50%").addClass('guess4')
+
+
+
+
 // colors for codekeeper
 // black  (right color. right place)
 // white  (right color. wrong place)
@@ -183,6 +199,11 @@ alert('you lose. correct code was' + GameCode);
 }
 
 }
+
+
+
+
+
 
 console.log(guessSubmit);
 // console.log(GameCode[0]);
