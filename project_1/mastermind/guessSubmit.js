@@ -3,7 +3,7 @@ $(() => {
 let guessSubmit = () => {
 
 let correctAnswers=0;
-let correctNumbers=0;
+// let correctNumbers=0;
 
 let Answer1Checked=0;
 let Answer2Checked=0;
@@ -112,6 +112,8 @@ console.log('one white');
       guess3Checked=1;
       console.log('one white');
                         }
+
+
 
 // if (correctAnswers = 4){
 // alert('you win');

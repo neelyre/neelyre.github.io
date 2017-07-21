@@ -43,7 +43,7 @@ body {
 #GameCode {
   background-color: #9A6328;
   height: 60px;
-  width: 550px;
+  width: 600px;
   margin: 5px;
   border: 2px solid black;
 
@@ -55,14 +55,67 @@ margin-top: 150px;
 }
 
 h2 {
+  display: inline;
   text-align: center;
 }
 
-.guess1 {
-  background-color: black;
+.level{
+  background-color: #68431C;
+  height: 60px;
+  width: 600px;
+  margin: 5px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#box1 {
-width: 40px;
-height: 40px;
+#R1 {
+  /*background-color: #68431C;
+  height: 60px;
+  width: 550px;
+  margin: 5px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;*/
+}
+
+h3{
+display: inline;
+/*padding-left: 10px;*/
+}
+
+
+.buttondisplay {
+  width: 600px;
+  /*margin: 15px;*/
+  display: inline;
+  padding: 15px;
+  display: flex;
+  justify-content:space-around;
+
+}
+
+.button {
+  padding: 15px;
+  border: 2px solid black;
+  border-radius: 45px;
+
+}
+
+a {
+    color: red;
+}
+
+.results {
+   display: inline;
+   margin-top: 2px;
+}
+
+.submitter {
+  display: inline;
+  padding: 8px;
+  border: 2px solid black;
+  color: blue;
 }
