@@ -2,48 +2,19 @@ $(() => {
 
 console.log('hi');
 
-//MASTER MIND GAMe
-
-// -----
-// //variables
-// ------
-
 const colorInPlay = ['red', 'green', 'blue', 'yellow', 'white', 'black'];
 
 const colorsForResult = ['white', 'black'];
 
-let rounds = 0;
+let rounds = 1;
 
 let GameCode = []; //test for now
 
 let guessArray = ['black', 'black', 'black', 'black'];
 
-const resCollection = ['#res1', '#res2', '#res3', '#res4', '#res5', '#res6', '#res7', '#res8', '#res9', '#res10',]
-
-$('.results').append('<img src = images/results/blank.png>');
 
 
-
-
-// FUNCTIONS
-// ----
-
-
-//
-//
-const nextRound = '<div id = "Round" class="level"> <h3 class="title"></h3><div class="buttondisplay"><a id="boxa" class="button" class="active"></a><a id="boxb" class="button" class="active"></a><a id="boxc" class="button" class="active"></a><a id="boxd" class="button" class="active"></a></div><a id="submit" class="submitter">SUBMIT</a><div id="res1" class="results"></div></div>';
-
-const buildRounds = () => {
-  for (i = 1; i <= 10; i++){
-    $('#Gameboard').append('<div id = "Round'+i+'" class="level"> <h3 class="title">Round '+i+'</h3><div class="buttondisplay"><a id="box'+i+'a" class="button btna" class="active"></a><a id="box'+i+'b" class="button btnb" class="active"></a><a id="box'+i+'c" class="button btnc" class="active"></a><a id="box'+i+'d" class="button btnd" class="active"></a></div><a id="submit'+i+'" class="submitter">SUBMIT</a><div id="res'+i+'" class="results"></div></div>');
-
-    // $('.title').append(i);
-  }
-}
-
-// }
-
-//CODE GOOD//
+// $('.results').append('<img src = images/results/blank.png>');
 
 const generateCode = GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))]) + GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))]) + GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))]) +
 GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))]);
@@ -60,7 +31,7 @@ $('#answerD').css('background-color', GameCode[3]).hide()
 
 
 const SwapResult = () => {
-      var x = document.getElementById('submit'+ (rounds + 1));
+      var x = document.getElementById('submit1');
               if (x.style.display === 'none') {
                     x.style.display = 'block';
                 } else {
@@ -82,41 +53,40 @@ const SwapResult = () => {
 
 const fourWayToggle1 = {
     number: 0,
-    toggle(e){
-      console.log(e);
+    toggle(){
       fourWayToggle1.number = (fourWayToggle1.number + 1) % 6;
     if (fourWayToggle1.number == 0) {
-      $(e.currentTarget).css("background-color", "red");
+      $('#boxa').css("background-color", "red");
       guessArray.splice(0, 1);
       guessArray.splice(0, 0, "red");
 
     }
     if (fourWayToggle1.number == 1) {
-      $(e.currentTarget).css("background-color", "blue")
+      $('#boxa').css("background-color", "blue")
       guessArray.splice(0, 1);
       guessArray.splice(0, 0, "blue");
 
     }
     if (fourWayToggle1.number == 2) {
-      $(e.currentTarget).css("background-color", "green");
+      $('#boxa').css("background-color", "green");
       guessArray.splice(0, 1);
       guessArray.splice(0, 0, "green");
 
     }
     if (fourWayToggle1.number == 3) {
-      $(e.currentTarget).css("background-color", "yellow")
+      $('#boxa').css("background-color", "yellow")
       guessArray.splice(0, 1);
       guessArray.splice(0, 0, "yellow");
 
     }
     if (fourWayToggle1.number == 4) {
-      $(e.currentTarget).css("background-color", "white")
+      $('#boxa').css("background-color", "white")
       guessArray.splice(0, 1);
       guessArray.splice(0, 0, "white");
 
     }
     if (fourWayToggle1.number == 5) {
-      $(e.currentTarget).css("background-color", "black")
+      $('#boxa').css("background-color", "black")
       guessArray.splice(0, 1);
       guessArray.splice(0, 0, "black");0
 
@@ -127,40 +97,40 @@ const fourWayToggle1 = {
 
 const fourWayToggle2 = {
     number: 0,
-    toggle(e){
+    toggle(){
       fourWayToggle2.number = (fourWayToggle2.number + 1) % 6;
     if (fourWayToggle2.number == 0) {
-      $(e.currentTarget).css("background-color", "red");
+      $('#boxb').css("background-color", "red");
       guessArray.splice(1, 1);
       guessArray.splice(1, 0, "red");
 
     }
     if (fourWayToggle2.number == 1) {
-      $(e.currentTarget).css("background-color", "blue")
+      $('#boxb').css("background-color", "blue")
       guessArray.splice(1, 1);
       guessArray.splice(1, 0, "blue");
 
     }
     if (fourWayToggle2.number == 2) {
-      $(e.currentTarget).css("background-color", "green");
+      $('#boxb').css("background-color", "green");
       guessArray.splice(1, 1);
       guessArray.splice(1, 0, "green");
 
     }
     if (fourWayToggle2.number == 3) {
-      $(e.currentTarget).css("background-color", "yellow")
+      $('#boxb').css("background-color", "yellow")
       guessArray.splice(1, 1);
       guessArray.splice(1, 0, "yellow");
 
     }
     if (fourWayToggle2.number == 4) {
-      $(e.currentTarget).css("background-color", "white")
+      $('#boxb').css("background-color", "white")
       guessArray.splice(1, 1);
       guessArray.splice(1, 0, "white");
 
     }
     if (fourWayToggle2.number == 5) {
-      $(e.currentTarget).css("background-color", "black")
+      $('#boxb').css("background-color", "black")
       guessArray.splice(1, 1);
       guessArray.splice(1, 0, "black");
 
@@ -171,40 +141,40 @@ const fourWayToggle2 = {
 
 const fourWayToggle3 = {
     number: 0,
-    toggle(e){
+    toggle(){
       fourWayToggle3.number = (fourWayToggle3.number + 1) % 6;
     if (fourWayToggle3.number == 0) {
-      $(e.currentTarget).css("background-color", "red");
+      $('#boxc').css("background-color", "red");
       guessArray.splice(2, 1);
       guessArray.splice(2, 0, "red");
 
     }
     if (fourWayToggle3.number == 1) {
-      $(e.currentTarget).css("background-color", "blue")
+      $('#boxc').css("background-color", "blue")
       guessArray.splice(2, 1);
       guessArray.splice(2, 0, "blue");
 
     }
     if (fourWayToggle3.number == 2) {
-      $(e.currentTarget).css("background-color", "green");
+      $('#boxc').css("background-color", "green");
       guessArray.splice(2, 1);
       guessArray.splice(2, 0, "green");
 
     }
     if (fourWayToggle3.number == 3) {
-      $(e.currentTarget).css("background-color", "yellow")
+      $('#boxc').css("background-color", "yellow")
       guessArray.splice(2, 1);
       guessArray.splice(2, 0, "yellow");
 
     }
     if (fourWayToggle3.number == 4) {
-      $(e.currentTarget).css("background-color", "white")
+      $('#boxc').css("background-color", "white")
       guessArray.splice(2, 1);
       guessArray.splice(2, 0, "white");
 
     }
     if (fourWayToggle3.number == 5) {
-      $(e.currentTarget).css("background-color", "black")
+      $('#boxc').css("background-color", "black")
       guessArray.splice(2, 1);
       guessArray.splice(2, 0, "black");
 
@@ -215,40 +185,216 @@ const fourWayToggle3 = {
 
 const fourWayToggle4 = {
     number: 0,
-    toggle(e){
+    toggle(){
       fourWayToggle4.number = (fourWayToggle4.number + 1) % 6;
     if (fourWayToggle4.number == 0) {
-      $(e.currentTarget).css("background-color", "red");
+      $('#boxd').css("background-color", "red");
       guessArray.splice(3, 1);
       guessArray.splice(3, 0, "red");
 
     }
     if (fourWayToggle4.number == 1) {
-      $(e.currentTarget).css("background-color", "blue")
+      $('#boxd').css("background-color", "blue")
       guessArray.splice(3, 1);
       guessArray.splice(3, 0, "blue");
 
     }
     if (fourWayToggle4.number == 2) {
-      $(e.currentTarget).css("background-color", "green");
+      $('#boxd').css("background-color", "green");
       guessArray.splice(3, 1);
       guessArray.splice(3, 0, "green");
 
     }
     if (fourWayToggle4.number == 3) {
-      $(e.currentTarget).css("background-color", "yellow")
+      $('#boxd').css("background-color", "yellow")
       guessArray.splice(3, 1);
       guessArray.splice(3, 0, "yellow");
 
     }
     if (fourWayToggle4.number == 4) {
-      $(e.currentTarget).css("background-color", "white")
+      $('#boxd').css("background-color", "white")
       guessArray.splice(3, 1);
       guessArray.splice(3, 0, "white");
 
     }
     if (fourWayToggle4.number == 5) {
-      $(e.currentTarget).css("background-color", "black")
+      $('#boxd').css("background-color", "black")
+      guessArray.splice(3, 1);
+      guessArray.splice(3, 0, "black");
+
+    }
+
+    }
+}
+
+const fourWayToggle1b = {
+    number: 0,
+    toggle(){
+      fourWayToggle1.number = (fourWayToggle1.number + 1) % 6;
+    if (fourWayToggle1.number == 0) {
+      $('#box2a').css("background-color", "red");
+      guessArray.splice(0, 1);
+      guessArray.splice(0, 0, "red");
+
+    }
+    if (fourWayToggle1.number == 1) {
+      $('#box2a').css("background-color", "blue")
+      guessArray.splice(0, 1);
+      guessArray.splice(0, 0, "blue");
+
+    }
+    if (fourWayToggle1.number == 2) {
+      $('#box2a').css("background-color", "green");
+      guessArray.splice(0, 1);
+      guessArray.splice(0, 0, "green");
+
+    }
+    if (fourWayToggle1.number == 3) {
+      $('#box2a').css("background-color", "yellow")
+      guessArray.splice(0, 1);
+      guessArray.splice(0, 0, "yellow");
+
+    }
+    if (fourWayToggle1.number == 4) {
+      $('#box2a').css("background-color", "white")
+      guessArray.splice(0, 1);
+      guessArray.splice(0, 0, "white");
+
+    }
+    if (fourWayToggle1.number == 5) {
+      $('#box2a').css("background-color", "black")
+      guessArray.splice(0, 1);
+      guessArray.splice(0, 0, "black");0
+
+    }
+
+    }
+}
+
+const fourWayToggle2b = {
+    number: 0,
+    toggle(){
+      fourWayToggle2.number = (fourWayToggle2.number + 1) % 6;
+    if (fourWayToggle2.number == 0) {
+      $('#box2b').css("background-color", "red");
+      guessArray.splice(1, 1);
+      guessArray.splice(1, 0, "red");
+
+    }
+    if (fourWayToggle2.number == 1) {
+      $('#box2b').css("background-color", "blue")
+      guessArray.splice(1, 1);
+      guessArray.splice(1, 0, "blue");
+
+    }
+    if (fourWayToggle2.number == 2) {
+      $('#box2b').css("background-color", "green");
+      guessArray.splice(1, 1);
+      guessArray.splice(1, 0, "green");
+
+    }
+    if (fourWayToggle2.number == 3) {
+      $('#box2b').css("background-color", "yellow")
+      guessArray.splice(1, 1);
+      guessArray.splice(1, 0, "yellow");
+
+    }
+    if (fourWayToggle2.number == 4) {
+      $('#box2b').css("background-color", "white")
+      guessArray.splice(1, 1);
+      guessArray.splice(1, 0, "white");
+
+    }
+    if (fourWayToggle2.number == 5) {
+      $('#box2b').css("background-color", "black")
+      guessArray.splice(1, 1);
+      guessArray.splice(1, 0, "black");
+
+    }
+
+    }
+}
+
+const fourWayToggle3b = {
+    number: 0,
+    toggle(){
+      fourWayToggle3.number = (fourWayToggle3.number + 1) % 6;
+    if (fourWayToggle3.number == 0) {
+      $('#box2c').css("background-color", "red");
+      guessArray.splice(2, 1);
+      guessArray.splice(2, 0, "red");
+
+    }
+    if (fourWayToggle3.number == 1) {
+      $('#box2c').css("background-color", "blue")
+      guessArray.splice(2, 1);
+      guessArray.splice(2, 0, "blue");
+
+    }
+    if (fourWayToggle3.number == 2) {
+      $('#box2c').css("background-color", "green");
+      guessArray.splice(2, 1);
+      guessArray.splice(2, 0, "green");
+
+    }
+    if (fourWayToggle3.number == 3) {
+      $('#box2c').css("background-color", "yellow")
+      guessArray.splice(2, 1);
+      guessArray.splice(2, 0, "yellow");
+
+    }
+    if (fourWayToggle3.number == 4) {
+      $('#box2c').css("background-color", "white")
+      guessArray.splice(2, 1);
+      guessArray.splice(2, 0, "white");
+
+    }
+    if (fourWayToggle3.number == 5) {
+      $('#box2c').css("background-color", "black")
+      guessArray.splice(2, 1);
+      guessArray.splice(2, 0, "black");
+
+    }
+
+    }
+}
+
+const fourWayToggle4b = {
+    number: 0,
+    toggle(){
+      fourWayToggle4.number = (fourWayToggle4.number + 1) % 6;
+    if (fourWayToggle4.number == 0) {
+      $('#box2d').css("background-color", "red");
+      guessArray.splice(3, 1);
+      guessArray.splice(3, 0, "red");
+
+    }
+    if (fourWayToggle4.number == 1) {
+      $('#box2d').css("background-color", "blue")
+      guessArray.splice(3, 1);
+      guessArray.splice(3, 0, "blue");
+
+    }
+    if (fourWayToggle4.number == 2) {
+      $('#box2d').css("background-color", "green");
+      guessArray.splice(3, 1);
+      guessArray.splice(3, 0, "green");
+
+    }
+    if (fourWayToggle4.number == 3) {
+      $('#box2d').css("background-color", "yellow")
+      guessArray.splice(3, 1);
+      guessArray.splice(3, 0, "yellow");
+
+    }
+    if (fourWayToggle4.number == 4) {
+      $('#box2d').css("background-color", "white")
+      guessArray.splice(3, 1);
+      guessArray.splice(3, 0, "white");
+
+    }
+    if (fourWayToggle4.number == 5) {
+      $('#box2d').css("background-color", "black")
       guessArray.splice(3, 1);
       guessArray.splice(3, 0, "black");
 
@@ -267,8 +413,7 @@ let guessSubmit = () => {
 let correctAnswers=0;
 let correctColors =0;
 
-rounds++;
-console.log(rounds);
+
 let guess1Checked=0;
 let guess2Checked=0;
 let guess3Checked=0;
@@ -380,10 +525,9 @@ console.log('one white');
       console.log('one white');
     }
 
-console.log(rounds - 1);
-console.log(resCollection[rounds - 1]);
+
                         if (correctAnswers === 1 && correctColors === 0) {
-                          $(resCollection[rounds - 1]).empty().append("<img src = images/results/1_black.png>");
+                          $('.results').empty().append("<img src = images/results/1_black.png>");
 
                         }
                         if(correctAnswers === 2 && correctColors === 0) {
@@ -437,147 +581,82 @@ console.log(resCollection[rounds - 1]);
                             $('.results').empty().append("<img src = images/results/noColors.png>");
                         }
 
-console.log(rounds);
+
                               console.log(correctColors);
                             }
+
 ////////////CODE ABOVE GOOD///////
 
 
                         //////RESULSTS FUNCTION////
 
+                        $(function(){
+                        	$("#boxa").on('click', () => {
+                        			fourWayToggle1.toggle();
+                        	});
+                        	}
+                        );
+
+                        $(function(){
+                        	$("#boxb").on('click', () => {
+                        			fourWayToggle2.toggle();
+                        	});
+                        	}
+                        );
+
+                        $(function(){
+                        	$("#boxc").on('click', () => {
+                        			fourWayToggle3.toggle();
+                        	});
+                        	}
+                        );
+
+                        $(function(){
+                        	$("#boxd").on('click', () => {
+                        			fourWayToggle4.toggle();
+                        	});
+                        	}
+                        );
+
+                        $(function(){
+                        	$("#submit1").on('click', () => {
+                        			SwapResult();
+                            });
+                            }
+                          );
 
 
+                        $(function(){
+                        	$("#box2a").on('click', () => {
+                        			fourWayToggle1b.toggle();
+                        	});
+                        	}
+                        );
 
+                        $(function(){
+                        	$("#box2b").on('click', () => {
+                        			fourWayToggle2b.toggle();
+                        	});
+                        	}
+                        );
 
+                        $(function(){
+                        	$("#box2c").on('click', () => {
+                        			fourWayToggle3b.toggle();
+                        	});
+                        	}
+                        );
 
-// console.log(playerTurns);
-// console.log(GetResult());
-// alert('you win');
-// }
-
-// console.log(playerTurns);
-
-// if (playerTurns === 10) {
-// alert('you lose. correct code was' + GameCode);
-// }
-
-///BUTTONS//
-
-// $(function(){
-// 	$("#boxa").on('click', () => {
-// 			fourWayToggle1.toggle();
-// 	});
-// 	}
-// );
-//
-// $(function(){
-// 	$("#boxb").on('click', () => {
-// 			fourWayToggle2.toggle();
-// 	});
-// 	}
-// );
-//
-// $(function(){
-// 	$("#boxc").on('click', () => {
-// 			fourWayToggle3.toggle();
-// 	});
-// 	}
-// );
-//
-// $(function(){
-// 	$("#boxd").on('click', () => {
-// 			fourWayToggle4.toggle();
-// 	});
-// 	}
-// );
-
-// const z = parseInt('box2a'.replace(/[^0-9\.]/g, ''), 10);
-// alert(number);
-//
-// $('#box2a').on('click',)
-
-
-	// $("#box2a").click(fourWayToggle1.toggle());
-
-
-//
-$(function(){
-	$(".btna").on('click', (e) => {
-			fourWayToggle1.toggle(e);
-	});
-	}
-);
-
-$(function(){
-	$(".btnb").on('click', (e) => {
-			fourWayToggle2.toggle(e);
-	});
-	}
-);
-
-$(function(){
-	$(".btnc").on('click', (e) => {
-			fourWayToggle3.toggle(e);
-	});
-	}
-);
-
-$(function(){
-	$(".btnd").on('click', (e) => {
-			fourWayToggle4.toggle(e);
-	});
-	}
-);
-
-
-
-
-$(function(){
-	$(".submitter").on('click', () => {
-			SwapResult();
-
-      console.log(guessArray);
-      // console.log(generateCode);
-      // console.log(generateCode);
-
-
-	});
-	}
-);
-
-// $(function(){
-// 	$("#learn").on('click', () => {
-//     var x = document.getElementById('instructions');
-//     if (x.style.display === 'none') {
-//         x.style.display = 'block';
-//     } else {
-//         x.style.display = 'none';
-//     }
-//   })
-// })
-// })
-
-//BUTTONS//
-
-// var text = $('2a').text();
-
-
-
-
-
-//guessSubmit MUST BE ENTERED MULTIPLE TIMES TO CHECK PLAYER TURN COUNT//
-// guessSubmit();
-buildRounds();
-console.log(guessArray);
-
-console.log(generateCode);
-console.log(colorInPlay);
-console.log(GameCode);
-console.log(rounds);
-
-
-
-
-//
-//
-})
+                        $(function(){
+                        	$("#box2d").on('click', () => {
+                        			fourWayToggle4b.toggle();
+                        	});
+                        	}
+                        );
+                        $(function(){
+                        	$("#submit2").on('click', () => {
+                        			SwapResult();
+                            });
+                            }
+                          );
+  })
