@@ -3,7 +3,8 @@ $(() => {
 let guessSubmit = () => {
 
 let correctAnswers=0;
-// let correctNumbers=0;
+// let correctNumbers=0
+let currentRound = 1;
 
 let Answer1Checked=0;
 let Answer2Checked=0;
@@ -113,7 +114,12 @@ console.log('one white');
       console.log('one white');
                         }
 
+                        
 
+// document.getElementById(fourWayToggle1()+currentRound).disabled=true;
+// document.getElementById(fourWayToggle2()+currentRound).disabled=true;
+// document.getElementById(fourWayToggle3()+currentRound).disabled=true;
+// document.getElementById(fourWayToggle4()+currentRound).disabled=true;
 
 // if (correctAnswers = 4){
 // alert('you win');

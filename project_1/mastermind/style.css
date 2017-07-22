@@ -46,6 +46,11 @@ body {
   width: 600px;
   margin: 5px;
   border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 175px;
+  margin-top: 100px;
 
 }
 
@@ -54,9 +59,19 @@ margin-left: 175px;
 margin-top: 150px;
 }
 
+.gameCodeDisplay {
+  width: 600px;
+  display: inline;
+  padding: 15px;
+  display: flex;
+  justify-content:space-around;
+
+}
+
 h2 {
   display: inline;
   text-align: center;
+
 }
 
 .level{
@@ -65,12 +80,13 @@ h2 {
   width: 600px;
   margin: 5px;
   border: 2px solid black;
+  margin-left: 175px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#R1 {
+#Round {
   /*background-color: #68431C;
   height: 60px;
   width: 550px;
@@ -99,10 +115,23 @@ display: inline;
 
 .button {
   padding: 15px;
+  height: 15px;
+  width: 15px;
   border: 2px solid black;
   border-radius: 45px;
-
 }
+
+.code {
+  padding: 15px;
+  height: 15px;
+  width: 15px;
+  border: 2px solid black;
+  border-radius: 45px;
+}
+
+
+
+
 
 a {
     color: red;
@@ -113,9 +142,24 @@ a {
    margin-top: 2px;
 }
 
+#res1 {
+  display: inline;
+  margin-top: 2px;
+}
+
 .submitter {
   display: inline;
   padding: 8px;
   border: 2px solid black;
   color: blue;
+}
+
+Footer {
+  text-align: center;
+}
+footer h3{
+  color: black;
+  display: inline block;
+  padding: 15px;
+  margin: 15px;
 }

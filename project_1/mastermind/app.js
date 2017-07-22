@@ -12,61 +12,66 @@ const colorInPlay = ['red', 'green', 'blue', 'yellow', 'white', 'black'];
 
 const colorsForResult = ['white', 'black'];
 
-let playerTurns = 0;
+let rounds = 1;
 
-let GameCode = ['red', 'green', 'blue', 'yellow']; //test for now
+let GameCode = []; //test for now
 
-let guessArray = ['red', 'yellow', 'blue', 'green'];
-//
-// const total = GameCode.push('football', 'swimming');
-//
-// for (i=1; i <= 10; i++) {
-//    const $rounds = $('<div/>').addClass('round').attr('id', 'box' + i);
-//    $('.rounds').append($rounds);
-//
-// }
+let guessArray = ['black', 'black', 'black', 'black'];
 
-// let SelectorOne = $('<div/>').addClass('guess1');
-// $('#colorSelector').append(SelectorOne);
+
 
 $('.results').append('<img src = images/results/blank.png>');
 
 
-
-
-
-const SwapResult = () => {
-  var x = document.getElementById('submit1');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-    }
-    guessSubmit();
-    $('res1').append(GetResult())
-
-}
-
-// colors for codekeeper
-// black  (right color. right place)
-// white  (right color. wrong place)
-//
-// number in code combination : 4
-//
-// number of player attempts to win: 10
-//
-// -----
 // FUNCTIONS
 // ----
 
+
+//
+//
+const nextRound = '<div id = "Round" class="level"> <h3 class="title"></h3><div class="buttondisplay"><a id="boxa" class="button" class="active"></a><a id="boxb" class="button" class="active"></a><a id="boxc" class="button" class="active"></a><a id="boxd" class="button" class="active"></a></div><a id="submit" class="submitter">SUBMIT</a><div id="res1" class="results"></div></div>';
+
+const buildRounds = () => {
+  for (i = 1; i <= 10; i++){
+    $('#Gameboard').append(nextRound);
+
+    // $('.title').append(i);
+  }
+}
+
+// }
+
 //CODE GOOD//
 
-// const generateCode = GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))]) + GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))]) + GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))]) + GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))])
+const generateCode = GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))]) + GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))]) + GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))]) +
+GameCode.push(colorInPlay[(Math.floor(Math.random() * 6))]);
+
+$('#answerA').css('background-color', GameCode[0]).hide()
+$('#answerB').css('background-color', GameCode[1]).hide()
+$('#answerC').css('background-color', GameCode[2]).hide()
+$('#answerD').css('background-color', GameCode[3]).hide()
 
 ///CODE GOOD   * this is code player must break
 // console.log(GameCode);
 
 
+
+
+const SwapResult = () => {
+      var x = document.getElementById('submit');
+              if (x.style.display === 'none') {
+                    x.style.display = 'block';
+                } else {
+                    x.style.display = 'none';
+                  }
+            $('#Round').removeClass('active').addClass('inactive');
+
+
+              guessSubmit();
+              // $('res1').append('img src = ' + GetResult() + '');
+              // $("#R").attr("disabled", true);
+
+}
 
 
 // }
@@ -250,41 +255,23 @@ const fourWayToggle4 = {
 }
 
 ///ALL FUNCTIONS ABOVE ARE GOOD
-// };
-// console.log(fourWayToggle);
-//
-// player tries = 10
-//
-// {player input 4 color combination (div clicks), then submit.
-//
-// func - check for mathing colors, if none return null
-//
-// if match colors, check for position.
-//
-// if match color, but no match, issue white peg.
-// if match color and match position, issue black peg. subtract 1 from tries.}
-//
-// repeat steps in brackets.
-//
-// if player tries = 0, end GAMe
-// if codekeeper issues 4 black pegs, player win.
+
 
 //GUESS FUNCTION//  WORKING
 //
 let guessSubmit = () => {
 
 let correctAnswers=0;
-let correctNumbers=0;
+let correctColors =0;
 
-let Answer1Checked=0;
-let Answer2Checked=0;
-let Answer3Checked=0;
-let Answer4Checked=0;
 
 let guess1Checked=0;
 let guess2Checked=0;
 let guess3Checked=0;
 let guess4Checked=0;
+
+// let correctColors = guess1Checked + guess2Checked + guess3Checked + guess4Checked;
+
 
 const Answer1 = GameCode[0];
 const Answer2 = GameCode[1];
@@ -296,167 +283,209 @@ const guess2 = guessArray[1];
 const guess3 = guessArray[2];
 const guess4 = guessArray[3];
 
-playerTurns++;
+// playerTurns++;
 
-if(guess1 == Answer1)
+if(guess1 === Answer1)
 	{
 		correctAnswers++;
-		value1Checked=1;
-		guess1Checked=1;
+		// value1Checked=1;
+		// guess1Checked=1;
 
     console.log('one Black');
 	}
-	if(guess2 == Answer2)
-	{
-		correctAnswers++;
-		value2Checked=1;
-		guess2Checked=1;
-
-    console.log('one Black');
-	}
-  if(guess3 == Answer3)
-{
-  correctAnswers++;
-  value3Checked=1;
-  guess3Checked=1;
-
-  console.log('one Black');
-}
-if(guess4 == Answer4)
-{
-  correctAnswers++;
-  value4Checked=1;
-  guess4Checked=1;
-
-  console.log('one Black');
-}
-
-if (guess1 == Answer2) {
-guess1Checked=1;
-console.log('one white');
-  }
-
-     if (guess1 == Answer3) {
-guess1Checked=1;
-console.log('one white');
+  else if (guess1 === Answer2 && guess2 !== Answer2) {
+  correctColors++;
+  console.log('one white');
     }
 
-       if (guess1 == Answer4) {
-  guess1Checked=1;
+    else if (guess1 === Answer3 && guess3 !== Answer3) {
+  correctColors++;
   console.log('one white');
       }
 
-if (guess2 == Answer1) {
-guess2Checked=1;
-console.log('one white');
+    else if (guess1 === Answer4 && guess4 !== Answer4) {
+  correctColors++;
+    console.log('one white');
         }
+	if(guess2 === Answer2)
+	{
+		correctAnswers++;
+		// value2Checked=1;
+		// guess2Checked=1;
 
-    if (guess2 == Answer3) {
-  guess2Checked=1;
+    console.log('one Black');
+	}
+
+  else if (guess2 === Answer1 && guess1 !== Answer1) {
+  correctColors++;
   console.log('one white');
           }
 
-       if (guess2 == Answer4) {
-    guess2Checked=1;
+    else if (guess2 === Answer3 && guess3 !== Answer3) {
+  correctColors++;
     console.log('one white');
             }
 
-if (guess3 == Answer1) {
-guess3Checked=1;
+      else if (guess2 === Answer4 && guess4 !== Answer4) {
+      correctColors++;
+      console.log('one white');
+              }
+  if(guess3 === Answer3)
+{
+  correctAnswers++;
+  // value3Checked=1;
+  // guess3Checked=1;
+
+  console.log('one Black');
+}
+
+else if (guess3 === Answer1 && guess1 !== Answer1) {
+correctColors++;
 console.log('one white');
                     }
-    if (guess3 == Answer2) {
-    guess3Checked=1;
+    else if (guess3 === Answer2 && guess2 !== Answer2) {
+    correctColors++;
     console.log('one white');
                       }
 
-      if (guess3 == Answer4) {
-      guess3Checked=1;
+      else if (guess3 === Answer4 && guess4 !== Answer4) {
+      correctColors++;
       console.log('one white');
             }
+if(guess4 === Answer4)
+{
+  correctAnswers++;
 
-if (guess4 == Answer1) {
-guess4Checked=1;
+  // value4Checked=1;
+  // guess4Checked=1;
+
+  console.log('one Black');
+}
+
+else if (guess4 === Answer1 && guess1 !== Answer1) {
+correctColors++;
 console.log('one white');
                     }
-    if (guess4 == Answer2) {
-    guess4Checked=1;
+    else if (guess4 === Answer2 && guess2 !== Answer2) {
+    correctColors++;
     console.log('one white');
                       }
 
-      if (guess4 == Answer3) {
-      guess4Checked=1;
+      else if (guess4 === Answer3 && guess3 !== Answer3) {
+      correctColors++;
       console.log('one white');
+    }
+
+
+                        if (correctAnswers === 1 && correctColors === 0) {
+                          $('.results').empty().append("<img src = images/results/1_black.png>");
+
                         }
+                        if(correctAnswers === 2 && correctColors === 0) {
+                          $('.results').empty().append("<img src = images/results/2_black.png>");
+                        }
+                        if (correctAnswers == 3 && correctColors == 0) {
+                          $('.results').empty().append("<img src = images/results/3_black.png>");
+                        }
+                        if (correctAnswers == 4) {
+                          $('.results').empty().append("<img src = images/results/4_black.png>");
+                          $('#answerA').show();
+                          $('#answerB').show();
+                          $('#answerC').show();
+                          $('#answerD').show();
+                          $('#ctc').hide();
+                        }
+                        if (correctAnswers == 0 && correctColors == 1) {
+                          $('.results').empty().append("<img src = images/results/1_white.png>");
+                        }
+                        if (correctAnswers == 0 && correctColors == 2) {
+                          $('.results').empty().append("<img src = images/results/2_white.png>");
+                        }
+                        if (correctAnswers == 0 && correctColors == 3) {
+                          $('.results').empty().append("<img src = images/results/3_white.png>");
+                        }
+                        if (correctAnswers == 0 && correctColors == 4) {
+                          $('.results').empty().append("<img src = images/results/4_white.png>");
+                        }
+                        if (correctAnswers == 1 && correctColors == 1) {
+                            $('.results').empty().append("<img src = images/results/1b_1w.png>");
+                        }
+                        if (correctAnswers == 2 && correctColors == 1) {
+                            $('.results').empty().append("<img src = images/results/2b_1w.png>");
+                        }
+                        if (correctAnswers == 3 && correctColors == 1) {
+                            $('.results').empty().append("<img src = images/results/3b_1w.png>");
+                        }
+                        if (correctAnswers == 1 && correctColors == 2) {
+                            $('.results').empty().append("<img src = images/results/1b_2w.png>");
+                        }
+                        if (correctAnswers == 2 && correctColors == 2) {
+                            $('.results').empty().append("<img src = images/results/2b_2w.png>");
+                        }
+                        if (correctAnswers == 3 && correctColors == 1) {
+                            $('.results').empty().append("<img src = images/results/3b_1w.png>");
+                        }
+                        if (correctAnswers == 1 && correctColors == 3) {
+                            $('.results').empty().append("<img src = images/results/1b_3w.png>");
+                        }
+                        if (correctAnswers == 0 && correctColors == 0) {
+                            $('.results').empty().append("<img src = images/results/noColors.png>");
+                        }
+
+
+                              console.log(correctColors);
+                            }
+
+////////////CODE ABOVE GOOD///////
+
 
                         //////RESULSTS FUNCTION////
 
-const GetResult = () => {
-
-const correctColors = guess1Checked + guess2Checked + guess3Checked + guess4Checked;
-
-if (correctAnswers == 1 && correctColors == 0) {
-  return "images/results/1_black.png";
-}
-if (correctAnswers == 2 && correctColors == 0) {
-  return "images/results/2_black.png";
-}
-if (correctAnswers == 3 && correctColors == 0) {
-  return "images/results/3_black.png";
-}
-if (correctAnswers == 4) {
-  return "images/results/4_black.png";
-}
-if (correctAnswers == 0 && correctColors == 1) {
-  return "images/results/1_white.png";
-}
-if (correctAnswers == 0 && correctColors == 2) {
-  return "images/results/2_white.png";
-}
-if (correctAnswers == 0 && correctColors == 3) {
-  return "images/results/3_white.png";
-}
-if (correctAnswers == 0 && correctColors == 4) {
-  return "images/results/4_white.png";
-}
-if (correctAnswers == 1 && correctColors == 1) {
-    return "images/results/1b_1w.png";
-}
-if (correctAnswers == 2 && correctColors == 1) {
-    return "images/results/2b_1w.png";
-}
-if (correctAnswers == 3 && correctColors == 1) {
-    return "images/results/3b_1w.png";
-}
-if (correctAnswers == 1 && correctColors == 2) {
-    return "images/results/1b_2w.png";
-}
-if (correctAnswers == 2 && correctColors == 2) {
-    return "images/results/2b_2w.png";
-}
-if (correctAnswers == 3 && correctColors == 1) {
-    return "images/results/3b_1w.png";
-}
-if (correctAnswers == 1 && correctColors == 3) {
-    return "images/results/1b_3w.png";
-}
-if (correctAnswers == 0 && correctColors == 0) {
-    return "images/results/noColors.png";
-}
 
 
-console.log(playerTurns);
-// if (correctAnswers = 4){
+
+
+
+// console.log(playerTurns);
+// console.log(GetResult());
 // alert('you win');
-}
+// }
 
 // console.log(playerTurns);
 
-if (playerTurns === 10) {
-alert('you lose. correct code was' + GameCode);
-}
+// if (playerTurns === 10) {
+// alert('you lose. correct code was' + GameCode);
+// }
 
 ///BUTTONS//
+
+// $(function(){
+// 	$("#boxa").on('click', () => {
+// 			fourWayToggle1.toggle();
+// 	});
+// 	}
+// );
+//
+// $(function(){
+// 	$("#boxb").on('click', () => {
+// 			fourWayToggle2.toggle();
+// 	});
+// 	}
+// );
+//
+// $(function(){
+// 	$("#boxc").on('click', () => {
+// 			fourWayToggle3.toggle();
+// 	});
+// 	}
+// );
+//
+// $(function(){
+// 	$("#boxd").on('click', () => {
+// 			fourWayToggle4.toggle();
+// 	});
+// 	}
+// );
 
 $(function(){
 	$("#boxa").on('click', () => {
@@ -486,9 +515,18 @@ $(function(){
 	}
 );
 
+
+
+
 $(function(){
-	$("#submit1").on('click', () => {
+	$("#submit").on('click', () => {
 			SwapResult();
+
+      console.log(guessArray);
+      // console.log(generateCode);
+      // console.log(generateCode);
+
+
 	});
 	}
 );
@@ -503,10 +541,14 @@ $(function(){
 
 
 //guessSubmit MUST BE ENTERED MULTIPLE TIMES TO CHECK PLAYER TURN COUNT//
-guessSubmit();
-
+// guessSubmit();
+buildRounds();
 console.log(guessArray);
-console.log((result1));
+
+console.log(generateCode);
+console.log(colorInPlay);
+console.log(GameCode);
+
 
 
 
