@@ -288,21 +288,21 @@ let correctColors =0;
 rounds++;
 
 console.log(rounds);
-let guess1Checked=0;
-let guess2Checked=0;
-let guess3Checked=0;
-let guess4Checked=0;
+// let guess1Checked=0;
+// let guess2Checked=0;
+// let guess3Checked=0;
+// let guess4Checked=0;
 
 
-const Answer1 = GameCode[0];
-const Answer2 = GameCode[1];
-const Answer3 = GameCode[2];
-const Answer4 = GameCode[3];
-
-const guess1 = guessArray[0];
-const guess2 = guessArray[1];
-const guess3 = guessArray[2];
-const guess4 = guessArray[3];
+// const Answer1 = GameCode[0];
+// const Answer2 = GameCode[1];
+// const Answer3 = GameCode[2];
+// const Answer4 = GameCode[3];
+//
+// const guess1 = guessArray[0];
+// const guess2 = guessArray[1];
+// const guess3 = guessArray[2];
+// const guess4 = guessArray[3];
 
 let GamecodeChecker = GameCode.slice();
 
